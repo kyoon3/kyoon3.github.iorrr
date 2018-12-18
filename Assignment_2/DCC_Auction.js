@@ -415,8 +415,8 @@ function voteForProduct(Index) {
   $("#buy-tokens").val("");
 	
 	simpleAuction.Auction(productName, buyTokens, function (e, r){
-		document.getElementById('highest_' + productName).innerHTML = simpleAuction.HighestReceived[Index];
-		document.getElementById('myself_' + productName).innerHTML = simpleAuction.BuyersReceived[Index];
+		$('highest_' + productName).val = simpleAuction.HighestReceived[Index];
+		$('myself_' + productName).val = simpleAuction.BuyersReceived[Index];
 
 	}
 	
