@@ -403,25 +403,24 @@ function getTokenInfo() {
   });
 }
 
-function getProductInfo() {
-  simpleAuction.getBuyersReceivedFor(function(e,r){
-    for(let i=1;i<=r.length;i++)
-    {
-      document.getElementById('day_votes_' + i).innerHTML = r[i-1].toString();
-    }
-  });
-}
 
-function voteForProduct() {
-  let productName = $("#product").val();
-  let buyTokens = $("#buy-tokens").val();
+
+function voteForProduct(Index) {
+	let productName = simpleAuction.product_name[Index];
+	let highestBid = simpleAuction.highestBid[Index];
+	let buyTokens = $("tb_" + productName).val();
+	
   $("#msg").html("Purchase has been submitted. The bid price will change as soon as the bid is recorded on the blockchain. Please wait.")
   $("#product").val("");
   $("#buy-tokens").val("");
+	
+	simpleAuction.Auction(productName, buyTokens, function (e, r){
+		document.getElementById('highest_' + productName).innerHTML = simpleAuction.HighestReceived[Index];
+		document.getElementById('myself_' + productName).innerHTML = simpleAuction.BuyersReceived[Index];
 
-  simpleAuction.buy(productName, buyTokens, function (e, r){
-    getProductInfo();
-  });
+	}
+	
+	);
 }
 
 function buyTokens() {
