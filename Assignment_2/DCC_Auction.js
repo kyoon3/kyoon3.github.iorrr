@@ -355,6 +355,7 @@ let accountAddress;
 let currentEtherBalance;
 let currentTokenBalance;
 let tokenPrice;
+var price;
 
 window.addEventListener('load', function() {
 
@@ -442,19 +443,18 @@ function getBuyerInfo() {
 	  }
 	});
   }
-  
+
   function getProductInfo(index)
   {
-	  var price;
 	simpleAuction.getProductAt(index,function(error,result)
 	{
 		price =  web3.toAscii(result);
 		
 	});
-	return price;
   }
+  
 function voteForProduct(Index) {
-	var productinfo = getProductInfo(Index);
+	var productinfo = price;
 	let buyTokens = $("tb_" + Index).val();
 	var product32 = web3.fromAscii(productinfo);
 
