@@ -458,7 +458,7 @@ function voteForProduct(Index) {
 
 	$("highest_" + productinfo).val("");
 	$("tb_" + productinfo).val("");
-	simpleAuction.Auction(productName, buyTokens, function (e, r){
+	simpleAuction.Auction(web3.fromAscii(productName), buyTokens, function (e, r){
 		getBuyerInfo();
 		getHighestBuyerInfo();
 
