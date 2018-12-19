@@ -1,4 +1,4 @@
-let contractAddress = '0x45b9f5f4accdbcc25d155ea4d4779f81387fb98f';
+let contractAddress = '0x28e9b2271ee47cc7de05e7ed812e978e738085e0';
 let abi =
 [
 	{
@@ -431,13 +431,15 @@ function getBuyerInfo() {
   	});
   }
 function voteForProduct(Index) {
-	let productName = simpleAuction.getProductsInfo()[Index];
+	let productName = $("highest_" + )
 	let highestBid = simpleAuction.getHighestReceivedFor()[Index];
-	let buyTokens = $("tb_" + Index).val();
-	console.log(productName);
-	console.log(highestBid);
-	console.log(buyTokens);
-
+	let buyTokens = $("tb_" + web3.toAscii()).val();
+	
+	let candidateName = $("#candidate").val();
+	let voteTokens = $("#vote-tokens").val();
+	$("#msg").html("Vote has been submitted. The vote count will increment as soon as the vote is recorded on the blockchain. Please wait.")
+	$("#candidate").val("");
+	$("#vote-tokens").val("");
 	
 	simpleAuction.Auction(productName, buyTokens, function (e, r){
 		getBuyerInfo();
