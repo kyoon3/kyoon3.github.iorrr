@@ -457,7 +457,7 @@ function getBuyerInfo() {
 function voteForProduct(Index) {
 	getProductInfo(Index);
 	productinfo = price;
-	let buyToken = $("#tb_" + Index).val();
+	buyToken = $("#tb_" + Index).val();
 
 	$("#highest_" + Index).val("");
 	$("#tb_" + Index).val("");
