@@ -421,7 +421,7 @@ function getBuyerInfo() {
 	});
   }
 function voteForProduct(Index) {
-	let productName = web3.toAscii(simpleAuction.product_name[Index]);
+	let productName = web3.toAscii(simpleAuction.product_name[simpleAuction.address][Index]);
 	let highestBid = simpleAuction.highestBid[Index];
 	let buyTokens = $("tb_" + Index).val();
 	console.log(productName);
@@ -430,7 +430,8 @@ function voteForProduct(Index) {
 
 	
 	simpleAuction.Auction(productName, buyTokens, function (e, r){
-		getBuyerInfo();getHighestBuyerInfo();
+		getBuyerInfo();
+		getHighestBuyerInfo();
 
 	}
 	
