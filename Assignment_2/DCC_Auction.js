@@ -389,12 +389,12 @@ function getToken() {
 
 function getTokenInfo() {
 
-  simpleAuction.getTotalToken(function(e,r){
-    document.getElementById('tokens-total').innerHTML = r.toString();
-  });
-  simpleAuction.getBalanceTokens(function(e,r){
-    document.getElementById('tokens-sellable').innerHTML = r.toString();
-  });
+  //simpleAuction.getTotalToken(function(e,r){
+    //document.getElementById('tokens-total').innerHTML = r.toString();
+  //});
+  //simpleAuction.getBalanceTokens(function(e,r){
+    //document.getElementById('tokens-sellable').innerHTML = r.toString();
+  //});
   simpleAuction.getTokenPrice(function(e,r){
     tokenPrice = parseFloat(web3.fromWei(r.toString()));
     document.getElementById('token-cost').innerHTML = tokenPrice + "ETH";
@@ -408,7 +408,7 @@ function getBuyerInfo() {
 	simpleAuction.getBuyersReceivedFor(function(e,r){
 	  for(let i=1;i<=r.length;i++)
 	  {
-		document.getElementById('myself_' + web3.toAscii(simpleAuction.product_name[i])).innerHTML = r[i-1].toString();
+		document.getElementById('myself_' + i-1).innerHTML = r[i-1].toString();
 	  }
 	});
   }
@@ -416,14 +416,14 @@ function getBuyerInfo() {
 	simpleAuction.getHighestReceivedFor(function(e,r){
 	  for(let i=1;i<=r.length;i++)
 	  {
-		document.getElementById('highest_' + web3.toAscii(simpleAuction.product_name[i])).innerHTML = r[i-1].toString();
+		document.getElementById('highest_' + i-1).innerHTML = r[i-1].toString();
 	  }
 	});
   }
 function voteForProduct(Index) {
-	let productName = simpleAuction.product_name[Index];
+	let productName = web3.toAscii(simpleAuction.product_name[Index]);
 	let highestBid = simpleAuction.highestBid[Index];
-	let buyTokens = $("tb_" + productName).val();
+	let buyTokens = $("tb_" + Index).val();
 	console.log(productName);
 	console.log(highestBid);
 	console.log(buyTokens);
