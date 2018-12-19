@@ -427,7 +427,7 @@ function getBuyerInfo() {
   {
   	simpleAuction.getProductsInfo(function(error,result)
   	{
-  		return web3.toAscii(result[index]);
+  		return web3.toAscii(result.args.c[index]);
   	});
   }
 function voteForProduct(Index) {
