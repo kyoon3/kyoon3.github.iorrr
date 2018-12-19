@@ -408,9 +408,9 @@ function getBuyerInfo() {
 	simpleAuction.getBuyersReceivedFor(function(error,result){
 	 
 	  
-	  for(let i=1;i<=result.length;i++)
+	  for(let i=0;i<result.length;i++)
 	  {
-		document.getElementById('myself_' + i-1).innerHTML = result[i-1].toString();
+		document.getElementById('myself_' + i).innerHTML = result[i].toString();
 	  }
 	});
   }
