@@ -452,9 +452,8 @@ function getBuyerInfo() {
   }
 function voteForProduct(Index) {
 	var productinfo = getProductInfo(Index);
-	let productName = $("highest_" + productinfo);
 	let buyTokens = $("tb_" + Index).val();
-	var product32 = web3.fromAscii(productName);
+	var product32 = web3.fromAscii(productinfo);
 
 	$("highest_" + productinfo).val("");
 	$("tb_" + productinfo).val("");
