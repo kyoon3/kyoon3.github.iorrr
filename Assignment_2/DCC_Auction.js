@@ -410,9 +410,7 @@ function voteForProduct(Index) {
 	let highestBid = simpleAuction.highestBid[Index];
 	let buyTokens = $("tb_" + productName).val();
 	
-  $("#msg").html("Purchase has been submitted. The bid price will change as soon as the bid is recorded on the blockchain. Please wait.")
-  $("#product").val("");
-  $("#buy-tokens").val("");
+  
 	
 	simpleAuction.Auction(productName, buyTokens, function (e, r){
 		$('highest_' + productName).val = simpleAuction.HighestReceived[Index];
