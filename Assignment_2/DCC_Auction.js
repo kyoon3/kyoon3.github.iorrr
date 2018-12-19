@@ -425,8 +425,10 @@ function voteForProduct(Index) {
 	let productName = simpleAuction.product_name[Index];
 	let highestBid = simpleAuction.highestBid[Index];
 	let buyTokens = $("tb_" + productName).val();
-	
-  
+	console.log(productName);
+	console.log(highestBid);
+	console.log(buyTokens);
+
 	
 	simpleAuction.Auction(productName, buyTokens, function (e, r){
 		getBuyerInfo();getHighestBuyerInfo();
