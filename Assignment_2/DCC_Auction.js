@@ -355,7 +355,7 @@ let accountAddress;
 let currentEtherBalance;
 let currentTokenBalance;
 let tokenPrice;
-var price;
+let price;
 
 window.addEventListener('load', function() {
 
