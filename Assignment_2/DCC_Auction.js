@@ -409,7 +409,7 @@ function getBuyerInfo() {
 	simpleAuction.getBuyersReceivedFor(function(e,r){
 	  for(let i=1;i<=r.length;i++)
 	  {
-		document.getElementById('myself_' + simpleAuction.product_name[i]).innerHTML = r[i-1].toString();
+		document.getElementById('myself_' + web3.toAscii(simpleAuction.product_name[i])).innerHTML = r[i-1].toString();
 	  }
 	});
   }
@@ -417,7 +417,7 @@ function getBuyerInfo() {
 	simpleAuction.getHighestReceivedFor(function(e,r){
 	  for(let i=1;i<=r.length;i++)
 	  {
-		document.getElementById('highest_' + simpleAuction.product_name[i]).innerHTML = r[i-1].toString();
+		document.getElementById('highest_' + web3.toAscii(simpleAuction.product_name[i])).innerHTML = r[i-1].toString();
 	  }
 	});
   }
