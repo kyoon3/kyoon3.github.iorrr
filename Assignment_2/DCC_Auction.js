@@ -456,11 +456,11 @@ function getBuyerInfo() {
 function voteForProduct(Index) {
 	getProductInfo(Index);
 	let productinfo = price;
-	let buyTokens = $("tb_" + Index).val();
+	let buyTokens = $("#tb_" + Index).val();
 	let product32 = web3.fromAscii(productinfo);
 
-	$("highest_" + productinfo).val("");
-	$("tb_" + productinfo).val("");
+	$("#highest_" + productinfo).val("");
+	$("#tb_" + productinfo).val("");
 	simpleAuction.Auction(product32, buyTokens, function (e,r){
 		getBuyerInfo();
 		getHighestBuyerInfo();
