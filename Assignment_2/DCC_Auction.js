@@ -409,10 +409,9 @@ function getProductsInfo()
 }
 function getBuyerInfo() {
 	simpleAuction.getBuyersReceivedFor(function(error,result){
-	  if(error)
-	  {
-		  console.log(result);
-	  }
+	 
+	  console.log(result);
+	  
 	  for(let i=1;i<=result.length;i++)
 	  {
 		document.getElementById('myself_' + i-1).innerHTML = result[i-1].toString();
