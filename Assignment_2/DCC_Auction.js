@@ -408,10 +408,14 @@ function getProductsInfo()
 	simpleAuction.get
 }
 function getBuyerInfo() {
-	simpleAuction.getBuyersReceivedFor(function(e,r){
-	  for(let i=1;i<=r.length;i++)
+	simpleAuction.getBuyersReceivedFor(function(error,result){
+	  if(error)
 	  {
-		document.getElementById('myself_' + i-1).innerHTML = r[i-1].toString();
+		  console.log(result);
+	  }
+	  for(let i=1;i<=result.length;i++)
+	  {
+		document.getElementById('myself_' + i-1).innerHTML = result[i-1].toString();
 	  }
 	});
   }
