@@ -445,16 +445,14 @@ function getBuyerInfo() {
   
   function getProductInfo(index)
   {
-	var Product;
 	simpleAuction.getProductAt(index,function(error,result)
 	{
-		Product = web3.toAscii(result);
+		return web3.toAscii(result);
 		
 	});
-	return Product;
   }
 function voteForProduct(Index) {
-	var productinfo = getProductInfo(Index);
+	var productinfo = getProductInfo(Index)();
 	let buyTokens = $("tb_" + Index).val();
 	var product32 = web3.fromAscii(productinfo);
 
