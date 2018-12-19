@@ -457,10 +457,10 @@ function getBuyerInfo() {
 function voteForProduct(Index) {
 	getProductInfo(Index);
 	productinfo = price;
-	buyTokens = $("#tb_" + Index).val();
+	let buyTokens = $("#tb_" + Index).val();
 
-	$("#highest_" + price).val("");
-	$("#tb_" + price).val("");
+	$("#highest_" + Index).val("");
+	$("#tb_" + Index).val("");
 	simpleAuction.Auction(byte32value, buyTokens, function (e,r){
 		getBuyerInfo();
 		getHighestBuyerInfo();
