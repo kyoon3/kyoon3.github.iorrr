@@ -355,7 +355,7 @@ let accountAddress;
 let currentEtherBalance;
 let currentTokenBalance;
 let tokenPrice;
-let price = "";
+let price;
 
 window.addEventListener('load', function() {
 
@@ -455,9 +455,9 @@ function getBuyerInfo() {
   
 function voteForProduct(Index) {
 	getProductInfo(Index);
-	let productinfo = price;
-	let buyTokens = $("#tb_" + Index).val();
-	let product32 = web3.fromAscii(productinfo);
+	productinfo = price;
+	buyTokens = $("#tb_" + Index).val();
+	product32 = web3.fromAscii(productinfo);
 
 	$("#highest_" + productinfo).val("");
 	$("#tb_" + productinfo).val("");
