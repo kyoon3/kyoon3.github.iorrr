@@ -403,8 +403,22 @@ function getTokenInfo() {
   });
 }
 
-
-
+function getBuyerInfo() {
+	simpleAuction.getBuyersReceivedFor(function(e,r){
+	  for(let i=1;i<=r.length;i++)
+	  {
+		document.getElementById('myself_' + simpleAuction.BuyersReceived[i]).innerHTML = r[i-1].toString();
+	  }
+	});
+  }
+  function getHighestBuyerInfo() {
+	simpleAuction.getHighestReceivedFor(function(e,r){
+	  for(let i=1;i<=r.length;i++)
+	  {
+		document.getElementById('myself_' + simpleAuction.HighestReceived[i]).innerHTML = r[i-1].toString();
+	  }
+	});
+  }
 function voteForProduct(Index) {
 	let productName = simpleAuction.product_name[Index];
 	let highestBid = simpleAuction.highestBid[Index];
@@ -413,8 +427,7 @@ function voteForProduct(Index) {
   
 	
 	simpleAuction.Auction(productName, buyTokens, function (e, r){
-		$('highest_' + productName).val = simpleAuction.HighestReceived[Index];
-		$('myself_' + productName).val = simpleAuction.BuyersReceived[Index];
+		getBuyerInfo();getHighestBuyerInfo();
 
 	}
 	
