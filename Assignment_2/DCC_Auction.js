@@ -403,7 +403,10 @@ function getTokenInfo() {
     document.getElementById('contract-balance').innerHTML = web3.fromWei(v.toString()) + "ETH";
   });
 }
-
+function getProductsInfo()
+{
+	simpleAuction.get
+}
 function getBuyerInfo() {
 	simpleAuction.getBuyersReceivedFor(function(e,r){
 	  for(let i=1;i<=r.length;i++)
@@ -421,8 +424,8 @@ function getBuyerInfo() {
 	});
   }
 function voteForProduct(Index) {
-	let productName = web3.toAscii(simpleAuction.product_name[simpleAuction.address][Index]);
-	let highestBid = simpleAuction.highestBid[Index];
+	let productName = simpleAuction.getProductsInfo()[Index];
+	let highestBid = simpleAuction.getHighestReceivedFor()[Index];
 	let buyTokens = $("tb_" + Index).val();
 	console.log(productName);
 	console.log(highestBid);
