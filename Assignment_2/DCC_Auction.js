@@ -356,7 +356,7 @@ let currentEtherBalance;
 let currentTokenBalance;
 let tokenPrice;
 let price;
-
+let byte32value;
 window.addEventListener('load', function() {
 
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -448,6 +448,7 @@ function getBuyerInfo() {
   {
 	simpleAuction.getProductAt(index,function(error,result)
 	{
+		byte32value = result;
 		price =  web3.toAscii(result);
 		
 	});
@@ -460,7 +461,7 @@ function voteForProduct(Index) {
 
 	$("#highest_" + price).val("");
 	$("#tb_" + price).val("");
-	simpleAuction.Auction(web3.fromAscii(price), buyTokens, function (e,r){
+	simpleAuction.Auction(byte32value, buyTokens, function (e,r){
 		getBuyerInfo();
 		getHighestBuyerInfo();
 
