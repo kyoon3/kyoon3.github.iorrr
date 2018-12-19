@@ -403,18 +403,14 @@ function getTokenInfo() {
     document.getElementById('contract-balance').innerHTML = web3.fromWei(v.toString()) + "ETH";
   });
 }
-function getProductsInfo()
-{
-	simpleAuction.get
-}
+
 function getBuyerInfo() {
 	simpleAuction.getBuyersReceivedFor(function(error,result){
 	 
-	  console.log(result);
 	  
 	  for(let i=1;i<=result.length;i++)
 	  {
-		document.getElementById('myself_' + i-1).innerHTML = result[i-1].toString();
+		document.getElementById('myself_' + i-1).innerHTML = result[getProductInfo(index-1)].toString();
 	  }
 	});
   }
@@ -422,9 +418,17 @@ function getBuyerInfo() {
 	simpleAuction.getHighestReceivedFor(function(e,r){
 	  for(let i=1;i<=r.length;i++)
 	  {
-		document.getElementById('highest_' + i-1).innerHTML = r[i-1].toString();
+		document.getElementById('highest_' + i-1).innerHTML = r[getProductInfo(index-1)].toString();
 	  }
 	});
+  }
+  
+  function getProductInfo(index)
+  {
+  	simpleAuction.getProductsInfo(function(result)
+  	{
+  		return result[index]
+  	});
   }
 function voteForProduct(Index) {
 	let productName = simpleAuction.getProductsInfo()[Index];
