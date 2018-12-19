@@ -461,14 +461,14 @@ function voteForProduct(Index) {
 
 	$("#highest_" + Index).val("");
 	$("#tb_" + Index).val("");
-	simpleAuction.Auction(byte32value, buyToken, function (error,result){
-		if(!error){
-			getBuyerInfo();
-			getHighestBuyerInfo();
-		}
-	}
 	
-	);
+	simpleAuction.Auction(byte32value, buyToken, function (error,result){
+		
+	}	);
+
+	
+	getBuyerInfo();
+	getHighestBuyerInfo();
 }
 
 function buyTokens() {
