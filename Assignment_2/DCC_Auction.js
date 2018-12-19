@@ -1,4 +1,4 @@
-let contractAddress = '0xce41f9e4098be4c62c2efdd968613f73785c3bc0';
+let contractAddress = '0xedad9d75c5ed1e0fa449c1806b5fe1b17eb87e10';
 let abi =
 [
 	{
@@ -327,6 +327,7 @@ let abi =
 		"stateMutability": "view",
 		"type": "function"
 	}
+
 ];
 
 let simpleAuctionContract;
@@ -372,7 +373,7 @@ function getValue() {
   getToken();
   getTokenInfo();
   getBuyerInfo();
-  getHighestBuyerInfo();
+  getHighestBuyerInfo()
 }
 
 function getEther() {
