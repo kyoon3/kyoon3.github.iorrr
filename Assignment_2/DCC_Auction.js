@@ -454,6 +454,7 @@ function getBuyerInfo() {
   }
   
 function voteForProduct(Index) {
+	getProductInfo(Index);
 	var productinfo = price;
 	let buyTokens = $("tb_" + Index).val();
 	var product32 = web3.fromAscii(productinfo);
