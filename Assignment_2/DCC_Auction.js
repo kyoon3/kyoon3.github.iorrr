@@ -431,7 +431,7 @@ function getBuyerInfo() {
   	});
   }
 function voteForProduct(Index) {
-	let productName = $("highest_" + )
+	let productName = $("highest_" + "a");
 	let highestBid = simpleAuction.getHighestReceivedFor()[Index];
 	let buyTokens = $("tb_" + web3.toAscii()).val();
 	
