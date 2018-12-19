@@ -450,6 +450,7 @@ function getBuyerInfo() {
 		return web3.toAscii(result);
 		
 	});
+	return simpleAuction.getProductAt(index);
   }
 function voteForProduct(Index) {
 	var productinfo = getProductInfo(Index)();
