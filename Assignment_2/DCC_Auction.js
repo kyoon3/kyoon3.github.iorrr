@@ -416,9 +416,9 @@ function getBuyerInfo() {
   }
   function getHighestBuyerInfo() {
 	simpleAuction.getHighestReceivedFor(function(e,r){
-	  for(let i=1;i<=r.length;i++)
+	  for(let i=0;i<r.length;i++)
 	  {
-		document.getElementById('highest_' + i-1).innerHTML = r[i-1].toString();
+		document.getElementById('highest_' + i).innerHTML = r[i].toString();
 	  }
 	});
   }
@@ -427,20 +427,17 @@ function getBuyerInfo() {
   {
   	simpleAuction.getProductsInfo(function(result)
   	{
-  		return result[index].toString();
+  		return web3.toAscii(result[index]);
   	});
   }
 function voteForProduct(Index) {
-	let productName = $("highest_" + "a");
-	let highestBid = simpleAuction.getHighestReceivedFor()[Index];
-	let buyTokens = $("tb_" + web3.toAscii()).val();
+	var productinfo = getProductInfo(Index);
+	let productName = $("highest_" + productinfo);
+	let buyTokens = $("tb_" +  productinfo).val();
 	
-	let candidateName = $("#candidate").val();
-	let voteTokens = $("#vote-tokens").val();
-	$("#msg").html("Vote has been submitted. The vote count will increment as soon as the vote is recorded on the blockchain. Please wait.")
-	$("#candidate").val("");
-	$("#vote-tokens").val("");
-	
+
+	$("highest_" + productinfo).val("");
+	$("tb_" + productinfo).val("");
 	simpleAuction.Auction(productName, buyTokens, function (e, r){
 		getBuyerInfo();
 		getHighestBuyerInfo();
