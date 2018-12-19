@@ -445,10 +445,10 @@ function getBuyerInfo() {
   
   function getProductInfo(index)
   {
-  	simpleAuction.getProductAt(function(error,result)
-  	{
-  		return web3.toAscii(result[index]);
-  	});
+	simpleAuction.getProductAt(index,function(error,result)
+	{
+		return web3.toAscii(result);
+	});
   }
 function voteForProduct(Index) {
 	var productinfo = getProductInfo(Index);
