@@ -448,6 +448,7 @@ function getBuyerInfo() {
 	simpleAuction.getProductAt(index,function(error,result)
 	{
 		var Product = web3.toAscii(result);
+		break;
 	});
 	return Product;
   }
