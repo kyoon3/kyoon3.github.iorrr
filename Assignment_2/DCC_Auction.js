@@ -410,7 +410,7 @@ function getBuyerInfo() {
 	  
 	  for(let i=1;i<=result.length;i++)
 	  {
-		document.getElementById('myself_' + i-1).innerHTML = result[getProductInfo(index-1)].toString();
+		document.getElementById('myself_' + i-1).innerHTML = result[i-1].toString();
 	  }
 	});
   }
@@ -418,7 +418,7 @@ function getBuyerInfo() {
 	simpleAuction.getHighestReceivedFor(function(e,r){
 	  for(let i=1;i<=r.length;i++)
 	  {
-		document.getElementById('highest_' + i-1).innerHTML = r[getProductInfo(index-1)].toString();
+		document.getElementById('highest_' + i-1).innerHTML = r[i-1].toString();
 	  }
 	});
   }
@@ -427,7 +427,7 @@ function getBuyerInfo() {
   {
   	simpleAuction.getProductsInfo(function(result)
   	{
-  		return result[index]
+  		return result[index].toString();
   	});
   }
 function voteForProduct(Index) {
