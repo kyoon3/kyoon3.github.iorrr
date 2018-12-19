@@ -461,7 +461,7 @@ function voteForProduct(Index) {
 	$("#highest_" + Index).val("");
 	$("#tb_" + Index).val("");
 	
-	simpleAuction.Auction(byte32value, buyToken, function (error,result){
+	simpleAuction.Auction(byte32value, 1, function (error,result){
 		
 	}	);
 
